@@ -1,0 +1,23 @@
+@import "bootstrap/scss/bootstrap";
+@import './nullStyles.scss';
+
+body {
+  margin: 0;
+
+  font-family: 'Dosis', sans-serif;
+  overflow: hidden;
+  background: rgb(58,133,180);
+  background: linear-gradient(230deg, rgba(39, 84, 162, 0.95) 0%, rgba(204,119,193,0.95) 50%, rgba(215,69,252,0.95) 100%);
+}
+
+
+#root {
+  height: 100%;
+}
+
+
+@media (max-height: 620px) {
+  body {
+    overflow: scroll;
+  }
+}

@@ -1,0 +1,145 @@
+@import '../../mixinsAndVariables.scss';
+
+.item {
+  width: fit-content;
+  min-width: 300px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 10px;
+  @include adaptiv-font(22, 16);
+  word-wrap: break-word;
+  margin: 0px 5px 10px 5px;
+
+  transition: background-color .6s ease;
+
+  -webkit-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.05);
+  box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.05);
+
+  animation-duration: 1s;
+  animation-name: anitationAdd;
+
+
+  &:hover &__deleteBtn{
+    opacity: .7;
+    transition: opacity 0.5s ease;
+  }
+
+  &__deleteBtn {
+    width: 15px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    &:hover {
+      animation-name: swing;
+      animation-play-state: running;
+      animation-duration: 1s;
+    }
+    
+  }
+
+  @keyframes swing { 
+    33% { transform: rotate(7deg); } 
+    66% { transform: rotate(-7deg); } 
+    100% { transform: rotate(7deg); } 
+ } 
+
+  & input, label {
+    cursor: pointer;
+  }
+
+  & label {
+    text-align: center;
+  }
+
+  &__customCheckbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    & + label {
+      display: inline-flex;
+      align-items: center;
+      user-select: none;
+    }
+
+    & + label::before {
+      content: '';
+      display: inline-block;
+      width: 1.2em;
+      height: 1.2em;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid #e9b0edd9;
+      border-radius: 0.25em;
+      margin-right: 0.5em;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+      background-color: none;
+      transition: background-color 1s ease-out;
+
+    }
+
+    &:checked+label::before {
+      background: rgba(236, 112, 243, 0.76);
+
+      transition: background-color 1s ease-out;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 13px;
+    }
+
+
+    &:not(:disabled):not(:checked)+label:hover::before {
+      border-color: rgba(227, 143, 233, 0.921);
+    }
+    
+    &:not(:disabled):active+label::before {
+      background-color: rgba(247, 150, 254, 0.868);
+      border-color: rgba(247, 150, 254, 0.868);
+    }
+
+    &:focus+label::before {
+      box-shadow: 0 0 0 0.2rem rgba(208, 0, 255, 0.25);
+    }
+
+    &:focus:not(:checked)+label::before {
+      border-color: rgba(247, 150, 254, 0.868);
+    }
+
+    &:disabled+label::before {
+      background-color: #e9ecef;
+    }
+  }
+}
+
+@keyframes anitationAdd {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.itemCompleted {
+  transition: background-color .6s ease;
+  background-color: rgba(185, 185, 185, 0.722);
+
+
+  & label {
+    transition: text-decoration .6s ease;
+
+    text-decoration: line-through;
+  }
+}
+

@@ -1,0 +1,18 @@
+@import '../../mixinsAndVariables.scss';
+
+.error {
+  margin: 0px 0px 10px 0px;
+  @include adaptiv-font(18, 16);
+  padding: 20px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  letter-spacing: 1px;
+  border: 1px solid #fff;
+  background: rgb(135,119,204);
+  background: linear-gradient(200deg, rgba(135,119,204,0.39625356978728987) 0%, rgba(160,58,180,0.4018558106836485) 50%, rgba(252,95,69,0.39625356978728987) 100%);
+  -webkit-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.15);
+  box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.15);
+
+}

@@ -1,0 +1,13 @@
+@import '../../mixinsAndVariables.scss';
+
+.filter {
+  -webkit-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.2);
+  
+
+  & label {
+    @include adaptiv-font(18, 16);
+    letter-spacing: 1px;
+  }
+}
